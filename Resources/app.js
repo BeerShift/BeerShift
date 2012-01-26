@@ -294,7 +294,7 @@ var windowSettings = Ti.UI.createWindow({
 
 var fireHouseTab = Ti.UI.createTab({
 	icon : 'icon-firehose.png',
-	title : 'Fire Hose',
+	title : 'Keg Stand',
 	window : windowFirehose
 });
 
