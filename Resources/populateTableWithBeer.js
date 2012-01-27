@@ -1,28 +1,11 @@
-//reference the current window
-var firehoseWindow = Titanium.UI.currentWindow;
-
-// get the tabGroup
-var tabGroup = Ti.UI.currentWindow.tabGroup;
-var APIHost = Ti.App.Properties.getString('APIHost');
-
-//create the view, this will hold all of our UI controls
-var view = Titanium.UI.createView({
-	width : 300,
-	height : 400,
-	left : 10,
-	top : 10,
-	backgroundColor : 'black',
-	borderRadius : 5
-});
-
-function populateTableWithBeer() {
+function populateTableWithBeer(beerName) {
 
 	var data = [];
 
 	var tblBeers = Titanium.UI.createTableView({
-		height : 340,
+		height : 380,
 		width : 320,
-		top : 0,
+		top : 55,
 		left : 5,
 		rowHeight : 35,
 		borderRadius : 5,
@@ -30,7 +13,7 @@ function populateTableWithBeer() {
 	});
 	view.add(tblBeers);
 	var data = [];
-	var APIurl = APIHost + "firehose/";
+	var APIurl = APIHost + "beers/name/" + beerName;
 	var request = Titanium.Network.createHTTPClient();
 	request.open('GET', APIurl);
 	request.send();
@@ -40,19 +23,19 @@ function populateTableWithBeer() {
 		var response = JSON.parse(request.responseText);
 
 		//loop each item in the json object
-		for(var i = 0; i < response.length; i++) {
+		for(var i = 0; i < response.data.length; i++) {
 			//create a table row
 			var row = Titanium.UI.createTableViewRow({
 				hasChild : true,
 				className : 'recipe-row',
 				backgroundColor : '#fff',
-				_username : response[i].username,
-				_beerName : response[i].beer,
-				_when : response[i].when
+				_title : response.data[i].name,
+				_description : response.data[i].description,
+				_brewery : response.data[i].breweries[0].name
 			});
 			//title label
 			var titleLabel = Titanium.UI.createLabel({
-				text : response[i].username + " drank " + response[i].beer,
+				text : response.data[i].name,
 				font : {
 					fontSize : 14,
 					fontWeight : 'bold'
@@ -75,19 +58,6 @@ function populateTableWithBeer() {
 			});
 			row.add(iconImage);
 
-			var whenLabel = Titanium.UI.createLabel({
-				text : response[i].when,
-				font : {
-					fontSize : 10,
-					fontWeight : 'normal'
-				},
-				left : 50,
-				top : 17,
-				height : 20,
-				width : 200,
-				color : '#000'
-			});
-			row.add(whenLabel);
 			//add the table row to our data[] object
 			data.push(row);
 		}
@@ -101,8 +71,3 @@ function populateTableWithBeer() {
 		tblBeers.visible = true;
 	}
 }
-
-firehoseWindow.add(view);
-firehoseWindow.addEventListener('focus', function(e) {
-	populateTableWithBeer();
-});

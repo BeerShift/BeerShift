@@ -7,6 +7,7 @@ var tabGroup = Ti.UI.currentWindow.tabGroup;
 // Check our properties to autofill if this user already exists.
 var username = Ti.App.Properties.getString("username");
 var password = Ti.App.Properties.getString("password");
+var APIHost = Ti.App.Properties.getString('APIHost');
 
 //create the view, this will hold all of our UI controls
 var view = Titanium.UI.createView({
@@ -20,21 +21,20 @@ var view = Titanium.UI.createView({
 
 // create the openshift logo
 var logo = Ti.UI.createImageView({
-	image: 'openshift-logo-white-scaled.png',
-	width: 141,
-	height: 56,
-	left: 85,
-	top: 200
+	image : 'images/openshift-logo-white-scaled.png',
+	width : 141,
+	height : 56,
+	left : 85,
+	top : 200
 });
 
 var breweryDBLogo = Ti.UI.createImageView({
-	image: 'Powered-By-BreweryDB.png',
-	width: 141,
-	height: 56,
-	left: 85,
-	top: 275
+	image : 'images/Powered-By-BreweryDB.png',
+	width : 141,
+	height : 56,
+	left : 85,
+	top : 275
 });
-
 
 view.add(logo);
 view.add(breweryDBLogo);
@@ -102,7 +102,7 @@ view.add(tfPassword);
 
 // create our Button to login
 var buttonLogin = Ti.UI.createButton({
-	image : 'login-btn.png',
+	image : 'images/button-login.png',
 	id : 1,
 	top : 120,
 	width : 74,
@@ -138,26 +138,34 @@ function loginUser(e) {
 	view.add(labelAuthenticating);
 
 	// Make a call out to openshift to validate / create user
-	//First, you'll want to check the user is connected to the intertubes
+	// First, you'll want to check the user is connected to the intertubes
 	if(Titanium.Network.online == true) {
 
 		// I could set a global var here that is a boolean to block until a response is received
 		// maybe have an animated gif imgView or something
 		var request = Titanium.Network.createHTTPClient();
-		var getURL = 'http://localhost/api/user/username/' + tfUsername.value;
+		var getURL = APIHost + 'user/username/' + tfUsername.value;
 		request.open('GET', getURL);
 		request.send();
 		request.onload = function() {
 			var statusCode = request.status;
 			if(statusCode == 404) {
 				// The username doesn't exist so lets create a new user
-				var postURL = 'http://localhost/api/user/';
+				var postURL = APIHost + 'user/';
 				var postRequest = Ti.Network.createHTTPClient();
 				postRequest.open('POST', postURL);
 				postRequest.send({
 					username : tfUsername.value,
 					password : tfPassword.value
 				});
+				labelAuthenticating.visible = false;
+					// Show the login button again to allow user to switch accounts
+					buttonLogin.visible = true;
+					// Set the properties
+					Ti.App.Properties.setString('username', tfUsername.value);
+					Ti.App.Properties.setString('password', tfPassword.value);
+					// Put the user back on the drink tab
+					tabGroup.setActiveTab(0);
 			}
 			if(statusCode == 200) {
 				var response = request.responseText;

@@ -4,6 +4,8 @@ var drankWindow = Titanium.UI.currentWindow;
 // get the tabGroup
 var tabGroup = Ti.UI.currentWindow.tabGroup;
 
+// get REST API host url 
+var APIHost = Ti.App.Properties.getString('APIHost');
 
 //create the view, this will hold all of our UI controls
 var view = Titanium.UI.createView({
@@ -14,7 +16,6 @@ var view = Titanium.UI.createView({
 	backgroundColor : 'black',
 	borderRadius : 5
 });
-
 
 function populateTableWithBeer() {
 
@@ -31,10 +32,9 @@ function populateTableWithBeer() {
 	});
 	view.add(tblBeers);
 	var data = [];
-	var pintlabURL = "http://localhost/api/userbeers/username/" + Ti.App.Properties.getString("username");;
-	Ti.API.info(pintlabURL);
+	var APIurl = APIHost + "userbeers/username/" + Ti.App.Properties.getString("username");
 	var request = Titanium.Network.createHTTPClient();
-	request.open('GET', pintlabURL);
+	request.open('GET', APIurl);
 	request.send();
 	//this method will process the remote data
 	request.onload = function() {
@@ -66,25 +66,28 @@ function populateTableWithBeer() {
 			});
 			row.add(titleLabel);
 
-			//add our little icon to the left of the row
+			//add our icon to the left of the row
 			var iconImage = Titanium.UI.createImageView({
-				image : 'beer-icon.png',
+				image : 'images/icon-beer.png',
 				width : 24,
 				height : 24,
 				left : 10,
 				top : 5
 			});
 			row.add(iconImage);
-			
+
 			var whenLabel = Titanium.UI.createLabel({
-			text: response[i].when,
-			font: {fontSize: 10, fontWeight: 'normal'},
-			left: 50,
-			top: 17,
-			height: 20,
-			width: 200,
-			color: '#000'
-		});
+				text : response[i].when,
+				font : {
+					fontSize : 10,
+					fontWeight : 'normal'
+				},
+				left : 50,
+				top : 17,
+				height : 20,
+				width : 200,
+				color : '#000'
+			});
 			row.add(whenLabel);
 			//add the table row to our data[] object
 			data.push(row);
@@ -100,9 +103,7 @@ function populateTableWithBeer() {
 	}
 }
 
-populateTableWithBeer();
 drankWindow.add(view);
-drankWindow.addEventListener('focus', function(e){
-	Ti.API.info('window has focus');
+drankWindow.addEventListener('focus', function(e) {
 	populateTableWithBeer();
 });
