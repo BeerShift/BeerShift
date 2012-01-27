@@ -1,5 +1,19 @@
 function populateTableWithBeer(windowType) {
+	var labelLoading = Titanium.UI.createLabel({
+	width : 'auto',
+	height : 30,
+	top : 20,
+	left : 50,
+	color : 'white',
+	font : {
+		fontSize : 14,
+		fontFamily : 'Helvetica',
+		fontWeight : 'bold'
+	},
+	text : 'Loading......'
+});
 
+view.add(labelLoading);
 	var data = [];
 
 	var tblBeers = Titanium.UI.createTableView({
@@ -11,7 +25,7 @@ function populateTableWithBeer(windowType) {
 		borderRadius : 5,
 		data : data
 	});
-	view.add(tblBeers);
+	
 	var APIurl = APIHost + "firehose/";
 	
 	if (windowType == 'drank') {
@@ -22,6 +36,8 @@ function populateTableWithBeer(windowType) {
 	request.send();
 	//this method will process the remote data
 	request.onload = function() {
+		labelLoading.visible = true;
+		tblBeers.visible = false;
 		//create a json object using the JSON.PARSE function
 		var response = JSON.parse(request.responseText);
 
@@ -82,11 +98,18 @@ function populateTableWithBeer(windowType) {
 		}
 
 		//finally, set the data property of the tableView to our data[] object
+		
 		tblBeers.visible = false;
 		tblBeers.setData(data);
 		tblBeers.addEventListener('click', function(e) {
 			drinkTab.open(createDetailWindow(e.rowData))
 		});
-		tblBeers.visible = true;
+		if(tblBeers.getData().length > 0) {
+			view.add(tblBeers);
+			labelLoading.visible = false;
+			tblBeers.visible = true;
+		}
 	}
 }
+
+
