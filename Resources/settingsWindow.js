@@ -60,7 +60,13 @@ var tfUsername = Ti.UI.createTextField({
 	top : 20,
 	right : 10,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	autocorrect : false,
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
+	font : {
+			fontSize : 12,
+			fontFamily : 'Helvetica',
+			fontWeight : 'bold'
+		},
 	hintText : 'BeerShift Username'
 });
 
@@ -94,6 +100,11 @@ var tfPassword = Ti.UI.createTextField({
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	passwordMask : true,
+	font : {
+			fontSize : 12,
+			fontFamily : 'Helvetica',
+			fontWeight : 'bold'
+		},
 	hintText : 'password'
 });
 
@@ -144,6 +155,7 @@ function loginUser(e) {
 		// I could set a global var here that is a boolean to block until a response is received
 		// maybe have an animated gif imgView or something
 		var request = Titanium.Network.createHTTPClient();
+		tfUsername.value = tfUsername.value.toLowerCase();
 		var getURL = APIHost + 'user/username/' + tfUsername.value;
 		request.open('GET', getURL);
 		request.send();

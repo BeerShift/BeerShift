@@ -61,6 +61,11 @@ var tfBeerName = Ti.UI.createTextField({
 		fontWeight : 'bold'
 	},
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	font : {
+			fontSize : 12,
+			fontFamily : 'Helvetica',
+			fontWeight : 'bold'
+		},
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	hintText : 'What am I drinking?'
 });

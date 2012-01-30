@@ -1,8 +1,8 @@
 #appname: BeerShift
 #publisher: gshipley
-#url: http://beershift-onpaas.rhcloud.com
+#url: http://beershift.onopenshift.com
 #image: appicon.png
-#appid: com.rhcloud.beershift-onpaas
+#appid: com.onopenshift.beershift
 #desc: undefined
 #type: mobile
-#guid: 9dee98a6-4c0b-40de-8672-15a035704611
+#guid: 64e620c7-5e85-4db9-878f-19ef576c2b42
