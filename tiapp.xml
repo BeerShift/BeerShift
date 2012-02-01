@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="ti.android.runtime">rhino</property>
+    <property name="ti.android.runtime">v8</property>
     <deployment-targets>
         <target device="mobileweb">false</target>
         <target device="iphone">true</target>

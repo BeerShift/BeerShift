@@ -55,17 +55,12 @@ var tfBeerName = Ti.UI.createTextField({
 	height : 30,
 	top : 20,
 	right : 0,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	font : {
-		fontSize : 14,
+		fontSize : 12,
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	font : {
-			fontSize : 12,
-			fontFamily : 'Helvetica',
-			fontWeight : 'bold'
-		},
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	hintText : 'What am I drinking?'
 });
@@ -76,7 +71,6 @@ tfBeerName.addEventListener('return', function(e) {
 	// this function is included from the populateTableWithBeer.js file
 	populateTableWithBeer(e.value);
 });
-
 // add our textfield to the view
 view.add(tfBeerName);
 

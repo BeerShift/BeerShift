@@ -1,8 +1,8 @@
-#appname: BeerShift
-#publisher: gshipley
-#url: http://beershift.onopenshift.com
-#image: appicon.png
-#appid: com.onopenshift.beershift
-#desc: undefined
-#type: mobile
-#guid: 64e620c7-5e85-4db9-878f-19ef576c2b42
+#appname:BeerShift
+#publisher:gshipley
+#url:http://beershift.onopenshift.com
+#image:appicon.png
+#appid:com.onopenshift.beershift
+#desc:not specified
+#type:mobile
+#guid:64e620c7-5e85-4db9-878f-19ef576c2b42

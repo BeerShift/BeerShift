@@ -95,7 +95,8 @@ function createDetailWindow(e) {
 		postRequest.send({
 			username : Ti.App.Properties.getString('username'),
 			beerName : labelBeerDetailName.text,
-			when : dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT")
+			when : dateFormat(now, "mmmm dS, yyyy, h:MM:ss TT"),
+
 		});
 
 		tabGroup.setActiveTab(1);

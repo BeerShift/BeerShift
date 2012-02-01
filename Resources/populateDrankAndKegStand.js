@@ -18,7 +18,7 @@ view.add(labelLoading);
 
 	var tblBeers = Titanium.UI.createTableView({
 		height : 340,
-		width : 320,
+		width : 300,
 		top : 0,
 		left : 5,
 		rowHeight : 35,
@@ -49,7 +49,8 @@ view.add(labelLoading);
 				className : 'recipe-row',
 				backgroundColor : '#fff',
 				_beerName : response[i].beer,
-				_when : response[i].when
+				_when : response[i].when,
+				_title: response[i].beer
 			});
 			//title label
 			var titleLabelText = response[i].username + " drank " + response[i].beer;
@@ -102,7 +103,7 @@ view.add(labelLoading);
 		tblBeers.visible = false;
 		tblBeers.setData(data);
 		tblBeers.addEventListener('click', function(e) {
-			drinkTab.open(createDetailWindow(e.rowData))
+			Ti.UI.currentTab.open(createDrankDetailWindow(e.rowData))
 		});
 		if(tblBeers.getData().length > 0) {
 			view.add(tblBeers);
