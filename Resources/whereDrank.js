@@ -5,7 +5,7 @@ function createDrankDetailWindow(e) {
 		top : 0,
 		left : 0,
 		backgroundColor : 'black',
-		title : 'Beer Details',
+		title : L('winBeerDetails'),
 		barImage : 'images/navbar.png'
 	});
 

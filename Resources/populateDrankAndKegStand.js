@@ -10,7 +10,7 @@ function populateTableWithBeer(windowType) {
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	text : 'Loading......'
+	text : L('lblLoading')
 });
 
 view.add(labelLoading);
@@ -53,7 +53,7 @@ view.add(labelLoading);
 				_title: response[i].beer
 			});
 			//title label
-			var titleLabelText = response[i].username + " drank " + response[i].beer;
+			var titleLabelText = response[i].username + L(titleLabelText) + response[i].beer;
 			if (windowType == 'drank') {
 				titleLabelText = response[i].beer;
 			} 

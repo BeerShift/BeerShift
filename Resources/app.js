@@ -18,7 +18,7 @@ var windowDrink = Ti.UI.createWindow({
 	top : 0,
 	left : 0,
 	backgroundColor : 'black',
-	title : 'BeerShift',
+	title : L('winDrink'),
 	barImage : 'images/navbar.png'
 });
 
@@ -44,7 +44,7 @@ var labelBeerName = Titanium.UI.createLabel({
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	text : 'Beer Name: '
+	text : L('lblBeerName')
 });
 // Add our search label to the view we created above
 view.add(labelBeerName);
@@ -62,7 +62,7 @@ var tfBeerName = Ti.UI.createTextField({
 		fontWeight : 'bold'
 	},
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
-	hintText : 'What am I drinking?'
+	hintText : L('tfBeerName')
 });
 
 // Add an event listener so when the user enters return or done
@@ -80,7 +80,7 @@ windowDrink.add(view);
 // Create our tabs and subwindows
 var drinkTab = Ti.UI.createTab({
 	icon : 'images/icon-drink.png',
-	title : 'Drink',
+	title : L('tabDrink'),
 	window : windowDrink
 });
 var windowDrank = Ti.UI.createWindow({
@@ -90,7 +90,7 @@ var windowDrank = Ti.UI.createWindow({
 	left : 0,
 	backgroundColor : "black",
 	url : 'drankWindow.js',
-	title : 'Drank',
+	title : L('winDrank'),
 	barImage : 'images/navbar.png'
 });
 var windowFirehose = Ti.UI.createWindow({
@@ -100,12 +100,12 @@ var windowFirehose = Ti.UI.createWindow({
 	left : 0,
 	backgroundColor : "black",
 	url : 'firehoseWindow.js',
-	title : 'Keg Stand',
+	title : L('winFirehose'),
 	barImage : 'images/navbar.png'
 });
 var drankTab = Ti.UI.createTab({
 	icon : 'images/icon-drank.png',
-	title : 'Drank',
+	title : L('tabDrank'),
 	window : windowDrank
 });
 var windowSettings = Ti.UI.createWindow({
@@ -115,18 +115,18 @@ var windowSettings = Ti.UI.createWindow({
 	left : 0,
 	backgroundColor : "black",
 	url : 'settingsWindow.js',
-	title : 'Settings',
+	title : L('winSettings'),
 	barImage : 'images/navbar.png',
 	mainTabGroup : tabGroup
 });
 var fireHouseTab = Ti.UI.createTab({
 	icon : 'images/icon-firehose.png',
-	title : 'Keg Stand',
+	title : L('tabFireHouse'),
 	window : windowFirehose
 });
 var settingsTab = Ti.UI.createTab({
 	icon : 'images/icon-settings.png',
-	title : 'Settings',
+	title : L('tabSettings'),
 	window : windowSettings
 });
 

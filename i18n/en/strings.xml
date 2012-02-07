@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="lblBeerName">Beer Name: </string>
+	<string name="tfBeerName">What am I drinking?</string>
+	<string name="tabDrink">Drink</string>
+	<string name="winDrank">Drank</string>
+	<string name="winFirehose">Keg Stand</string>
+	<string name="tabDrank">Drank</string>
+	<string name="winSettings">Settings</string>
+	<string name="tabFireHouse">Keg Stand</string>
+	<string name="tabSettings">Settings</string>
+	<string name="winDrink">BeerShift</string>
+	<string name="winBeerDetails">Beer Details</string>
+	<string name="lblDrinkTheBeer">Drink It!</string>
+	<string name="lblLoading">Loading......</string>
+	<string name="titleLabelText"> drank </string>
+	<string name="lblUsername">Username: </string>
+	<string name="tfUsernameHintText">BeerShift Username</string>
+	<string name="lblPassword">Password: </string>
+	<string name="tfPasswordHintText">password</string>
+	<string name="lblAuthenticating">Authenticating</string>
+	<string name="alrtDialogTitle">Bad Password</string>
+	<string name="alrtDialogMsg">Password is not correct for this user</string>
+	<string name="winBeerDetails">Beer Details</string>
+</resources>
