@@ -50,7 +50,7 @@ var labelUsername = Titanium.UI.createLabel({
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	text : 'Username: '
+	text : L('lblUsername')
 });
 view.add(labelUsername);
 
@@ -67,7 +67,7 @@ var tfUsername = Ti.UI.createTextField({
 			fontFamily : 'Helvetica',
 			fontWeight : 'bold'
 		},
-	hintText : 'BeerShift Username'
+	hintText : L('tfUsernameHintText')
 });
 
 // fill the username textfield with the existing username
@@ -88,7 +88,7 @@ var labelPassword = Titanium.UI.createLabel({
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	text : 'Password: '
+	text : L('lblPassword')
 });
 view.add(labelPassword);
 
@@ -105,7 +105,7 @@ var tfPassword = Ti.UI.createTextField({
 			fontFamily : 'Helvetica',
 			fontWeight : 'bold'
 		},
-	hintText : 'password'
+	hintText : L('tfPasswordHintText')
 });
 
 view.add(tfUsername);
@@ -143,7 +143,7 @@ function loginUser(e) {
 			fontFamily : 'Helvetica',
 			fontWeight : 'bold'
 		},
-		text : 'Authenticating'
+		text : L('lblAuthenticating')
 	});
 
 	view.add(labelAuthenticating);
@@ -198,8 +198,8 @@ function loginUser(e) {
 						labelAuthenticating.visible = false;
 						// Show an alert telling the user the password is not correct
 						var alertDialog = Titanium.UI.createAlertDialog({
-							title : 'Bad Password',
-							message : 'Password is not correct for this user'
+							title : L('alrtDialogTitle'),
+							message : L('alrtDialogMsg')
 						});
 						alertDialog.show();
 						buttonLogin.visible = true;
