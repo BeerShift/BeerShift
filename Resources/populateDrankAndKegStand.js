@@ -53,7 +53,7 @@ view.add(labelLoading);
 				_title: response[i].beer
 			});
 			//title label
-			var titleLabelText = response[i].username + L(titleLabelText) + response[i].beer;
+			var titleLabelText = response[i].username + L('titleLabelText') + response[i].beer;
 			if (windowType == 'drank') {
 				titleLabelText = response[i].beer;
 			} 
