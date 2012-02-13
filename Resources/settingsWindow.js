@@ -63,10 +63,10 @@ var tfUsername = Ti.UI.createTextField({
 	autocorrect : false,
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	font : {
-			fontSize : 12,
-			fontFamily : 'Helvetica',
-			fontWeight : 'bold'
-		},
+		fontSize : 12,
+		fontFamily : 'Helvetica',
+		fontWeight : 'bold'
+	},
 	hintText : L('tfUsernameHintText')
 });
 
@@ -101,10 +101,10 @@ var tfPassword = Ti.UI.createTextField({
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	passwordMask : true,
 	font : {
-			fontSize : 12,
-			fontFamily : 'Helvetica',
-			fontWeight : 'bold'
-		},
+		fontSize : 12,
+		fontFamily : 'Helvetica',
+		fontWeight : 'bold'
+	},
 	hintText : L('tfPasswordHintText')
 });
 
@@ -163,21 +163,38 @@ function loginUser(e) {
 			var statusCode = request.status;
 			if(statusCode == 404) {
 				// The username doesn't exist so lets create a new user
-				var postURL = APIHost + 'user/';
-				var postRequest = Ti.Network.createHTTPClient();
-				postRequest.open('POST', postURL);
-				postRequest.send({
-					username : tfUsername.value,
-					password : tfPassword.value
+				// but only if the user wants us to
+				var createUserOptionDialog = Ti.UI.createOptionDialog({
+					title : L('createUserTitle'),
+					options : [L('labelYes'), L('labelNo')],
+					cancel : 1
+				})
+
+				//add the click event listener to the option dialog
+				createUserOptionDialog.addEventListener('click', function(e) {
+					if(e.index == 0) {
+						var postURL = APIHost + 'user/';
+						var postRequest = Ti.Network.createHTTPClient();
+						postRequest.open('POST', postURL);
+						postRequest.send({
+							username : tfUsername.value,
+							password : tfPassword.value
+						});
+						labelAuthenticating.visible = false;
+						// Show the login button again to allow user to switch accounts
+						buttonLogin.visible = true;
+						// Set the properties
+						Ti.App.Properties.setString('username', tfUsername.value);
+						Ti.App.Properties.setString('password', tfPassword.value);
+						// Put the user back on the drink tab
+						tabGroup.setActiveTab(0);
+					} else {
+						labelAuthenticating.visible = false;
+						buttonLogin.visible = true;
+					}
 				});
-				labelAuthenticating.visible = false;
-					// Show the login button again to allow user to switch accounts
-					buttonLogin.visible = true;
-					// Set the properties
-					Ti.App.Properties.setString('username', tfUsername.value);
-					Ti.App.Properties.setString('password', tfPassword.value);
-					// Put the user back on the drink tab
-					tabGroup.setActiveTab(0);
+				createUserOptionDialog.show();
+
 			}
 			if(statusCode == 200) {
 				var response = request.responseText;
