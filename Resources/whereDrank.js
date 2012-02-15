@@ -55,7 +55,7 @@ function createDrankDetailWindow(e) {
 	});
 	
 	// Add our UI elements to our view
-	
+
 	
 	detailsView.add(labelBeerDetailName);
 	detailsView.add(labelWhenDrank);
