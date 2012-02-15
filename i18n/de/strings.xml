@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="lblBeerName">Bier Name: </string>
+	<string name="tfBeerName">Was trinke ich gerade?</string>
+	<string name="tabDrink">Trinken</string>
+	<string name="winDrank">Getrunken</string>
+	<string name="winFirehose">Bier Reihe</string>
+	<string name="tabDrank">Getrunken</string>
+	<string name="winSettings">Einstellungen</string>
+	<string name="tabFireHouse">Bier Reihe</string>
+	<string name="tabSettings">Einstellungen</string>
+	<string name="winDrink">BeerShift</string>
+	<string name="winBeerDetails">Bier Details</string>
+	<string name="lblDrinkTheBeer">Trinken!</string>
+	<string name="lblLoading">Lade......</string>
+	<string name="titleLabelText"> trank </string>
+	<string name="lblUsername">Benutzername: </string>
+	<string name="tfUsernameHintText">BeerShift Benutzername</string>
+	<string name="lblPassword">Passwort: </string>
+	<string name="tfPasswordHintText">Passwort</string>
+	<string name="lblAuthenticating">Authenticating</string>
+	<string name="alrtDialogTitle">Falsches Passwort</string>
+	<string name="alrtDialogMsg">Das Passwort für diesen Benutzer ist nicht korrekt</string>
+	<string name="winBeerDetails">Bier Details</string>
+	<string name="createUserTitle">That user doesn't exist.  Would you like to create it?</string>
+	<string name="labelYes">Yes</string>
+	<string name="labelNo">No</string>
+</resources>

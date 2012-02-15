@@ -5,7 +5,7 @@ function createDetailWindow(e) {
 		top : 0,
 		left : 0,
 		backgroundColor : 'black',
-		title : 'Beer Details',
+		title : L('winBeerDetails'),
 		barImage : 'images/navbar.png'
 	});
 
@@ -82,7 +82,7 @@ function createDetailWindow(e) {
 			fontFamily : 'Helvetica',
 			fontWeight : 'bold'
 		},
-		text : 'Drink It!'
+		text : L('lblDrinkTheBeer')
 	});
 
 	labelDrinkTheBeer.addEventListener('click', function(e) {
