@@ -21,7 +21,6 @@
 	<string name="lblAuthenticating">Authenticating</string>
 	<string name="alrtDialogTitle">Bad Password</string>
 	<string name="alrtDialogMsg">Password is not correct for this user</string>
-	<string name="winBeerDetails">Beer Details</string>
 	<string name="createUserTitle">That user doesn't exist.  Would you like to create it?</string>
 	<string name="labelYes">Yes</string>
 	<string name="labelNo">No</string>
