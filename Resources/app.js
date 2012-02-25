@@ -7,8 +7,7 @@ Ti.include('populateTableWithBeer.js');
 var tabGroup = Ti.UI.createTabGroup();
 
 // define our BeerShift REST API host
-var APIHost = 'http://beershift.onopenshift.com/index.php/api/';
-//var APIHost = 'http://localhost/index.php/api/';
+var APIHost = 'http://beershift2-onpaas.rhcloud.com/index.php/api/';
 
 // set the BeerShift REST API host as a property
 Ti.App.Properties.setString('APIHost', APIHost);

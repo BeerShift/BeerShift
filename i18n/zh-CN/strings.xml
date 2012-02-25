@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="lblBeerName">啤酒名: </string>
+	<string name="tfBeerName">喝点什么呢?</string>
+	<string name="tabDrink">想喝</string>
+	<string name="winDrank">喝过</string>
+	<string name="winFirehose">酒神榜</string>
+	<string name="tabDrank">喝过</string>
+	<string name="winSettings">设置</string>
+	<string name="tabFireHouse">酒神榜</string>
+	<string name="tabSettings">设置</string>
+	<string name="winDrink">BeerShift</string>
+	<string name="winBeerDetails">啤酒详情</string>
+	<string name="lblDrinkTheBeer">就喝它!</string>
+	<string name="lblLoading">载入中......</string>
+	<string name="titleLabelText"> 喝了 </string>
+	<string name="lblUsername">用户名: </string>
+	<string name="tfUsernameHintText">BeerShift 用户名</string>
+	<string name="lblPassword">密码: </string>
+	<string name="tfPasswordHintText">密码</string>
+	<string name="lblAuthenticating">验证中</string>
+	<string name="alrtDialogTitle">密码错误</string>
+	<string name="alrtDialogMsg">密码与用户不匹配</string>
+	<string name="createUserTitle">该用户不存在。创建之？</string>
+	<string name="labelYes">好</string>
+	<string name="labelNo">不</string>
+</resources>
