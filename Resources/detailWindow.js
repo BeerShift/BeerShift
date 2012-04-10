@@ -75,10 +75,10 @@ function createDetailWindow(e) {
 		width : 'auto',
 		height : 30,
 		top : 320,
-		left : 130,
+		left : 115,
 		color : 'white',
 		font : {
-			fontSize : 14,
+			fontSize : 26,
 			fontFamily : 'Helvetica',
 			fontWeight : 'bold'
 		},

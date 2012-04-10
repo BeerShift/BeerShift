@@ -21,7 +21,7 @@ var view = Titanium.UI.createView({
 
 // create the openshift logo
 var logo = Ti.UI.createImageView({
-	image : 'images/openshift-logo-white-scaled.png',
+	image : 'images/OpenShift-Logo-1.jpg',
 	width : 141,
 	height : 56,
 	left : 85,
