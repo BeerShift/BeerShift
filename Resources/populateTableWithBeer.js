@@ -12,8 +12,7 @@ function populateTableWithBeer(beerName) {
 		data : data
 	});
 	view.add(tblBeers);
-	var data = [];
-	var APIurl = APIHost + "beers/name/" + beerName;
+	var APIurl = APIHost + "beers/name/" + escape(beerName);
 	var request = Titanium.Network.createHTTPClient();
 	request.open('GET', APIurl);
 	request.send();
