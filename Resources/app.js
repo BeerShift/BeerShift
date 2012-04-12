@@ -7,17 +7,13 @@ Ti.include('populateTableWithBeer.js');
 var tabGroup = Ti.UI.createTabGroup();
 
 // define our BeerShift REST API host
-var APIHost = 'http://beershift.onopenshift.com/index.php/api/';
+var APIHost = 'http://beershift-mjelenrh.rhcloud.com/';
 
 // set the BeerShift REST API host as a property
 Ti.App.Properties.setString('APIHost', APIHost);
 
 // define our main window that will users to search for Beers
 var windowDrink = Ti.UI.createWindow({
-	width : 320,
-	height : 480,
-	top : 0,
-	left : 0,
 	backgroundColor : 'black',
 	title : L('winDrink'),
 	barImage : 'images/navbar.png'
@@ -25,40 +21,30 @@ var windowDrink = Ti.UI.createWindow({
 
 // Define our primary view for the DrinkWindow
 var view = Ti.UI.createView({
-	width : 320,
-	height : windowDrink.height - 134,
-	left : 0,
-	top : 0,
 	backgroundColor : 'black',
-	borderRadius : 5
+	borderRadius : 5,
 });
 
 // create our search label
 var labelBeerName = Titanium.UI.createLabel({
-	width : 'auto',
-	height : 30,
-	top : 20,
-	left : 10,
+	top: 20,
+	left: 10,
 	color : 'white',
 	font : {
-		fontSize : 14,
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
 	text : L('lblBeerName')
 });
 // Add our search label to the view we created above
-view.add(labelBeerName);
+//view.add(labelBeerName);
 
 // Creata a textfield to allow the user to input a beer name and place it next the label field
 var tfBeerName = Ti.UI.createTextField({
-	width : 200,
-	height : 30,
-	top : 20,
-	right : 0,
+	width: "95%",
+	top: 10,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	font : {
-		fontSize : 12,
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},

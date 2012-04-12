@@ -1,6 +1,6 @@
 function createDrankDetailWindow(e) {
 	var windowBeerDetails = Ti.UI.createWindow({
-		width : 320,
+		width : "100%",
 		height : 480,
 		top : 0,
 		left : 0,

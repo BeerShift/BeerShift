@@ -1,7 +1,5 @@
 function createDetailWindow(e) {
 	var windowBeerDetails = Ti.UI.createWindow({
-		width : 320,
-		height : 480,
 		top : 0,
 		left : 0,
 		backgroundColor : 'black',
@@ -73,7 +71,6 @@ function createDetailWindow(e) {
 	});
 	var labelDrinkTheBeer = Titanium.UI.createLabel({
 		width : 'auto',
-		height : 30,
 		top : 320,
 		left : 115,
 		color : 'white',

@@ -3,15 +3,15 @@ function populateTableWithBeer(beerName) {
 	var data = [];
 
 	var tblBeers = Titanium.UI.createTableView({
-		height : 380,
-		width : 320,
-		top : 55,
-		left : 5,
+		width : "95%",
+		top : 100,
 		rowHeight : 35,
 		borderRadius : 5,
 		data : data
 	});
+	
 	view.add(tblBeers);
+	
 	var APIurl = APIHost + "beers/name/" + escape(beerName);
 	var request = Titanium.Network.createHTTPClient();
 	request.open('GET', APIurl);
@@ -40,7 +40,7 @@ function populateTableWithBeer(beerName) {
 					fontWeight : 'bold'
 				},
 				left : 50,
-				top : 5,
+				top : 10,
 				height : 20,
 				width : 210,
 				color : '#000'
