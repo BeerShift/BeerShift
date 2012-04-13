@@ -18,6 +18,39 @@ var view = Titanium.UI.createView({
 	layout: 'vertical'
 });
 
+var labelApi = Titanium.UI.createLabel({
+	width : 'auto',
+	left : 10,
+	color : 'white',
+	font : {
+		fontSize : 14,
+		fontFamily : 'Helvetica',
+		fontWeight : 'bold'
+	},
+	text : L('lblApi')
+});
+view.add(labelApi);
+
+var tfApi = Ti.UI.createTextField({
+	width : '95%',
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	autocorrect : false,
+	returnKeyType : Ti.UI.RETURNKEY_DONE,
+	font : {
+		fontSize : 12,
+		fontFamily : 'Helvetica',
+		fontWeight : 'bold'
+	},
+	hintText : L('tfApiHintText')
+});
+
+if(APIHost != null) {
+	tfApi.value = APIHost;
+}
+
+view.add(tfApi);
+
 var labelUsername = Titanium.UI.createLabel({
 	width : 'auto',
 	left : 10,
@@ -136,6 +169,9 @@ function loginUser(e) {
 	});
 
 	view.add(labelAuthenticating);
+	
+	Ti.App.Properties.setString('APIHost', tfApi.value);
+	APIHost = tfApi.value;
 
 	// Make a call out to openshift to validate / create user
 	// First, you'll want to check the user is connected to the intertubes

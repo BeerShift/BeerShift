@@ -16,6 +16,8 @@
 	<string name="titleLabelText"> 喝了 </string>
 	<string name="lblUsername">用户名: </string>
 	<string name="tfUsernameHintText">BeerShift 用户名</string>
+	<string name="lblApi">URL: </string>
+	<string name="lblApiHintText">Service URL</string>
 	<string name="lblPassword">密码: </string>
 	<string name="tfPasswordHintText">密码</string>
 	<string name="lblAuthenticating">验证中</string>

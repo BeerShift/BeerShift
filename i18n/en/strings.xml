@@ -14,6 +14,8 @@
 	<string name="lblDrinkTheBeer">Drink It!</string>
 	<string name="lblLoading">Loading......</string>
 	<string name="titleLabelText"> drank </string>
+	<string name="lblApi">URL: </string>
+	<string name="lblApiHintText">Service URL</string>
 	<string name="lblUsername">Username: </string>
 	<string name="tfUsernameHintText">BeerShift Username</string>
 	<string name="lblPassword">Password: </string>

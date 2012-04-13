@@ -16,6 +16,8 @@
 	<string name="titleLabelText"> trank </string>
 	<string name="lblUsername">Benutzername: </string>
 	<string name="tfUsernameHintText">BeerShift Benutzername</string>
+	<string name="lblApi">URL: </string>
+	<string name="lblApiHintText">Service URL</string>
 	<string name="lblPassword">Passwort: </string>
 	<string name="tfPasswordHintText">Passwort</string>
 	<string name="lblAuthenticating">Authenticating</string>

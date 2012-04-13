@@ -7,10 +7,11 @@ Ti.include('populateTableWithBeer.js');
 var tabGroup = Ti.UI.createTabGroup();
 
 // define our BeerShift REST API host
-var APIHost = 'http://beershift-mjelenrh.rhcloud.com/';
-
-// set the BeerShift REST API host as a property
-Ti.App.Properties.setString('APIHost', APIHost);
+var APIHost = Ti.App.Properties.getString('APIHost');
+if(APIHost == null){
+	APIHost = 'http://beershift.onopenshift.com/index.php/api/'; //http://beershift-mjelenrh.rhcloud.com/
+	Ti.App.Properties.setString('APIHost', APIHost);
+};
 
 // define our main window that will users to search for Beers
 var windowDrink = Ti.UI.createWindow({
