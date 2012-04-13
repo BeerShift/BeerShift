@@ -1,45 +1,41 @@
-function populateTableWithBeer(windowType) {
+function populateTableWithBeer(windowType, data) {
 	var labelLoading = Titanium.UI.createLabel({
-	width : 'auto',
-	height : 30,
-	top : 20,
-	left : 50,
-	color : 'white',
-	font : {
-		fontSize : 14,
-		fontFamily : 'Helvetica',
-		fontWeight : 'bold'
-	},
-	text : L('lblLoading')
-});
-
-view.add(labelLoading);
-	var data = [];
-
-	var tblBeers = Titanium.UI.createTableView({
-		height : 340,
-		width : 300,
-		top : 0,
-		left : 5,
-		rowHeight : 35,
-		borderRadius : 5,
-		data : data
+		width : 'auto',
+		height : 30,
+		top : 20,
+		left : 50,
+		color : 'white',
+		font : {
+			fontSize : 14,
+			fontFamily : 'Helvetica',
+			fontWeight : 'bold'
+		},
+		text : L('lblLoading')
 	});
+
+	view.add(labelLoading);
 	
 	var APIurl = APIHost + "firehose/";
 	
 	if (windowType == 'drank') {
 		APIurl = APIHost + "userbeers/username/" + Ti.App.Properties.getString("username");
-	} 
+	};
+	
 	var request = Titanium.Network.createHTTPClient();
 	request.open('GET', APIurl);
 	request.send();
+	
 	//this method will process the remote data
 	request.onload = function() {
+		
 		labelLoading.visible = true;
 		tblBeers.visible = false;
+		
 		//create a json object using the JSON.PARSE function
-		var response = JSON.parse(request.responseText);
+		var responseData = request.responseText;
+		var response = JSON.parse(responseData);
+		
+		data.length = 0;
 
 		//loop each item in the json object
 		for(var i = 0; i < response.length; i++) {
@@ -53,7 +49,7 @@ view.add(labelLoading);
 				_title: response[i].beer
 			});
 			//title label
-			var titleLabelText = response[i].username + L('titleLabelText') + response[i].beer;
+			var titleLabelText = response[i].username + " " + L('titleLabelText') + " " + response[i].beer;
 			if (windowType == 'drank') {
 				titleLabelText = response[i].beer;
 			} 

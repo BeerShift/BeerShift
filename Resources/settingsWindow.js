@@ -11,38 +11,15 @@ var APIHost = Ti.App.Properties.getString('APIHost');
 
 //create the view, this will hold all of our UI controls
 var view = Titanium.UI.createView({
-	width : 300,
-	height : 400,
 	left : 10,
 	top : 10,
 	backgroundColor : 'black',
-	borderRadius : 5
+	borderRadius : 5,
+	layout: 'vertical'
 });
-
-// create the openshift logo
-var logo = Ti.UI.createImageView({
-	image : 'images/OpenShift-Logo-1.jpg',
-	width : 141,
-	height : 56,
-	left : 85,
-	top : 200
-});
-
-var breweryDBLogo = Ti.UI.createImageView({
-	image : 'images/Powered-By-BreweryDB.png',
-	width : 141,
-	height : 56,
-	left : 85,
-	top : 275
-});
-
-view.add(logo);
-view.add(breweryDBLogo);
 
 var labelUsername = Titanium.UI.createLabel({
 	width : 'auto',
-	height : 30,
-	top : 20,
 	left : 10,
 	color : 'white',
 	font : {
@@ -55,10 +32,8 @@ var labelUsername = Titanium.UI.createLabel({
 view.add(labelUsername);
 
 var tfUsername = Ti.UI.createTextField({
-	width : 200,
-	height : 30,
-	top : 20,
-	right : 10,
+	width : '95%',
+	top : 10,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	autocorrect : false,
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
@@ -79,8 +54,7 @@ view.add(tfUsername);
 
 var labelPassword = Titanium.UI.createLabel({
 	width : 'auto',
-	height : 30,
-	top : 70,
+	top : 10,
 	left : 10,
 	color : 'white',
 	font : {
@@ -93,10 +67,8 @@ var labelPassword = Titanium.UI.createLabel({
 view.add(labelPassword);
 
 var tfPassword = Ti.UI.createTextField({
-	width : 200,
-	height : 30,
-	top : 70,
-	right : 10,
+	width : '95%',
+	top : 10,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	returnKeyType : Ti.UI.RETURNKEY_DONE,
 	passwordMask : true,
@@ -115,16 +87,33 @@ view.add(tfPassword);
 var buttonLogin = Ti.UI.createButton({
 	image : 'images/button-login.png',
 	id : 1,
-	top : 120,
-	width : 74,
-	height : 24,
+	top : 10,
 	left : 123,
 	backgroundColor : 'black'
 });
 
+
 buttonLogin.addEventListener('click', loginUser);
 
 view.add(buttonLogin);
+
+// create the openshift logo
+var logo = Ti.UI.createImageView({
+	image : 'images/OpenShift-Logo-1.jpg',
+	left : 125,
+	top : 20
+});
+
+var breweryDBLogo = Ti.UI.createImageView({
+	image : 'images/Powered-By-BreweryDB.png',
+	left : 85,
+	top : 10
+});
+
+view.add(logo);
+view.add(breweryDBLogo);
+
+
 settingsWindow.add(view);
 
 function loginUser(e) {

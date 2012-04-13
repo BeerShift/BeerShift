@@ -8,7 +8,6 @@ function createDetailWindow(e) {
 	});
 
 	var detailsView = Ti.UI.createView({
-		width : 320,
 		height : windowBeerDetails.height - 134,
 		left : 0,
 		top : 0,
@@ -57,7 +56,7 @@ function createDetailWindow(e) {
 		backgroundColor : 'black',
 		value : e._description,
 		height : 200,
-		width : 300,
+		width : '95%',
 		top : 105,
 		left : 10,
 		font : {
