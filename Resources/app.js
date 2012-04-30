@@ -49,7 +49,7 @@ var tfBeerName = Ti.UI.createTextField({
 		fontFamily : 'Helvetica',
 		fontWeight : 'bold'
 	},
-	returnKeyType : Ti.UI.RETURNKEY_DONE,
+	returnKeyType : Ti.UI.RETURNKEY_SEARCH,
 	hintText : L('tfBeerName')
 });
 
