@@ -8,7 +8,7 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <sdk-version>1.8.2</sdk-version>
+    <sdk-version>2.0.2.GA</sdk-version>
     <id>com.onopenshift.beershift</id>
     <name>BeerShift</name>
     <version>1.0</version>

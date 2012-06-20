@@ -1,4 +1,4 @@
-function createDetailWindow(e) {
+function DetailWindow(e) {
 	var windowBeerDetails = Ti.UI.createWindow({
 		top : 0,
 		left : 0,
@@ -92,7 +92,6 @@ function createDetailWindow(e) {
 			username : Ti.App.Properties.getString('username'),
 			beerName : labelBeerDetailName.text,
 			when : dateFormat(now, "mmmm dS, yyyy, h:MM:ss TT"),
-
 		});
 
 		tabGroup.setActiveTab(1);
@@ -105,4 +104,6 @@ function createDetailWindow(e) {
 	windowBeerDetails.add(detailsView);
 
 	return windowBeerDetails;
-}
+};
+
+module.exports = DetailWindow;
