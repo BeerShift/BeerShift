@@ -19,32 +19,7 @@ function SettingsWindow() {
 		labelFont = {fontSize: 14, fontFamily: 'Helvetica', fontWeight: 'bold'},
 		fieldFont = {fontSize: 12, fontFamily: 'Helvetica', fontWeight: 'bold'};
 
-	
-	var labelApi = Titanium.UI.createLabel({
-		width: 'auto',
-		left: 10,
-		top: 10,
-		color: 'white',
-		font: labelFont,
-		text: L('lblApi')
-	});
-	self.add(labelApi);
-	
-	var tfApi = Ti.UI.createTextField({
-		width: '95%',
-		top: 0,
-		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-		autocorrect: false,
-		returnKeyType: Ti.UI.RETURNKEY_DONE,
-		font: fieldFont,
-		hintText: L('tfApiHintText')
-	});
-	
-	if (APIHost !== null) {
-		tfApi.value = APIHost;
-	}
-	self.add(tfApi);
-	
+		
 	var labelUsername = Titanium.UI.createLabel({
 		width: 'auto',
 		left: 10,
@@ -134,11 +109,8 @@ function SettingsWindow() {
 			text : L('lblAuthenticating')
 		});
 	
-		view.add(labelAuthenticating);
+		self.add(labelAuthenticating);
 		
-		Ti.App.Properties.setString('APIHost', tfApi.value);
-		APIHost = tfApi.value;
-	
 		// Make a call out to openshift to validate / create user
 		// First, you'll want to check the user is connected to the intertubes
 		if(Titanium.Network.online == true) {
@@ -160,7 +132,6 @@ function SettingsWindow() {
 						options : [L('labelYes'), L('labelNo')],
 						cancel : 1
 					})
-	
 					//add the click event listener to the option dialog
 					createUserOptionDialog.addEventListener('click', function(e) {
 						if(e.index == 0) {
@@ -178,7 +149,7 @@ function SettingsWindow() {
 							Ti.App.Properties.setString('username', tfUsername.value);
 							Ti.App.Properties.setString('password', tfPassword.value);
 							// Put the user back on the drink tab
-							tabGroup.setActiveTab(0);
+							self.tabGroup.setActiveTab(0);
 						} else {
 							labelAuthenticating.visible = false;
 							buttonLogin.visible = true;
@@ -200,7 +171,7 @@ function SettingsWindow() {
 						Ti.App.Properties.setString('username', tfUsername.value);
 						Ti.App.Properties.setString('password', tfPassword.value);
 						// Put the user back on the drink tab
-						tabGroup.setActiveTab(0);
+						self.tabGroup.setActiveTab(0);
 					} else {
 						if(tfUsername.value == backUser && tfPassword.value != backPassword) {
 							labelAuthenticating.visible = false;

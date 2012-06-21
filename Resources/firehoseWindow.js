@@ -101,8 +101,7 @@ function FirehoseWindow() {
 	var reloadButton = Titanium.UI.createButton({
 		top: 10,
 		left:10,
-		title: 'Reload',
-		backgroundColor: '#FFF'
+		title: 'Reload'
 	});
 	
 	var data = [];

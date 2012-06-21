@@ -7,7 +7,7 @@ var tabGroup = Ti.UI.createTabGroup();
 // define our BeerShift REST API host
 var APIHost = Ti.App.Properties.getString('APIHost');
 if (APIHost == null) {
-	APIHost = 'http://beershift.onopenshift.com/index.php/api/'; //http://beershift-mjelenrh.rhcloud.com/
+	APIHost = 'http://beershift.onopenshift.com/index.php/api/';
 	Ti.App.Properties.setString('APIHost', APIHost);
 };
 

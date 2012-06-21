@@ -25,7 +25,7 @@ function DrankWindow() {
 		
 		request.onerror = function(e) {
 			Ti.API.error(JSON.stringify(e));
-			alert("ERROR: Unable to retrieve your drank list.");
+			alert("ERROR: Unable to retrieve your drank list. Try drinking a beer first?");
 		};
 		
 		//this method will process the remote data
