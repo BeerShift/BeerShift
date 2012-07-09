@@ -108,10 +108,11 @@ function FirehoseWindow() {
 	
 	var tblBeers = Titanium.UI.createTableView({
 		top: 20,
-		width : '100%',
-		rowHeight : 35,
-		borderRadius : 5,
-		data : data
+		width: '100%',
+		height: '75%',
+		rowHeight: 35,
+		borderRadius: 5,
+		data: data
 	});
 	
 	reloadButton.addEventListener('click', function(e){
