@@ -8,8 +8,8 @@ function DrankWindow() {
 	});
 	
 	// get the tabGroup
-	var tabGroup = self.tabGroup,
-		DrankDetailWin = require('whereDrank');
+	var tabGroup = self.tabGroup;
+	var DrankDetailWindow = require('whereDrank');
 	
 	function populateTableWithBeer(windowType, data) {
 		var APIurl = APIHost + "firehose/";
